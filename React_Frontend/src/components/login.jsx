@@ -6,15 +6,21 @@ import { Link } from 'react-router-dom/cjs/react-router-dom';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    console.log({
-        email:data.get('email'),
-        password:data.get('password')
-    });
- };
+    
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    if (!email.match(emailPattern)) {
+      setErrorMessage('Please enter a valid email address.');
+      return;
+    }
+
+    console.log('Email is valid:', email);
+
+  }
 
   return (
     <div className="container">
@@ -35,6 +41,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
               autoFocus
             />
+        {errorMessage && <p className="error">{errorMessage}</p>}
         <TextField
               margin="normal"
               required

@@ -12,6 +12,11 @@ body {
     height: 100vh;
   }
   
+  .error{
+    color: red;
+    font-size: 14px;
+    text-align: left;
+  }
   /* Create a white container for the form */
   .container {
     background-color: #fff;
