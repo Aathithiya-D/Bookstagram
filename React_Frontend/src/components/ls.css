@@ -17,6 +17,15 @@ body {
     font-size: 14px;
     text-align: left;
   }
+
+  .login{
+    text-align: left;
+  }
+
+  .signup{
+    text-align: left;
+  }
+
   /* Create a white container for the form */
   .container {
     background-color: #fff;

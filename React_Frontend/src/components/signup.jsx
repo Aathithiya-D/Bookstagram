@@ -48,7 +48,10 @@ const Signup = () => {
         <div className='title'>
           Bookstagram.inc
         </div>
-        <h1>Sign up</h1>
+        <div className='signup'>
+        <h1>Sign Up</h1>
+        <h3>Reading Made Easy, Anytime, Anywhere !!!!</h3>
+        </div>
         <TextField
           margin="normal"
           required

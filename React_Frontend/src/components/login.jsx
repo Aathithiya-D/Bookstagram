@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const[errorMessage, setErrorMessage] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -28,7 +28,12 @@ const Login = () => {
         <div className='title'>
             Bookstagram.inc
         </div>
-        <h1>Login</h1>
+        <div className='login'>
+          <h1>
+          Login
+          </h1>
+          <h3>Welcome Back, Reading Redefined !</h3>
+          </div>
         <TextField
               margin="normal"
               required
