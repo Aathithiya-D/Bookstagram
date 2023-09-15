@@ -1,5 +1,8 @@
 body {
-    background-color: #000;
+    /* background-color: #000; */
+    background-image: url("https://img.freepik.com/free-photo/high-angle-open-books-teacup_23-2149871504.jpg?w=1060&t=st=1694754528~exp=1694755128~hmac=be3e15d2f03e872467695ac3c8aca588367df6fc2653372025484ae2c4390997");
+    background-repeat: no-repeat;
+    background-size: 100%;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
