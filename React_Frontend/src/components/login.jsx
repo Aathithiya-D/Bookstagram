@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import './ls.css';
-import { Link } from 'react-router-dom/cjs/react-router-dom';
+import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom';
+import { useDispatch } from 'react-redux';
+import {login} from '../features/admin';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const[errorMessage, setErrorMessage] = useState('');
+
+  const dispatch = useDispatch();
+
+  const history = useHistory();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -20,9 +26,15 @@ const Login = () => {
 
     console.log('Email is valid:', email);
 
+    
+    history.push('/adminDash');
   }
 
+  
+
+
   return (
+    <div className='before'>
     <div className="container">
       <form className="login-form" onSubmit={handleLogin}>
         <div className='title'>
@@ -60,10 +72,11 @@ const Login = () => {
               autoComplete="current-password"
             />
         <br/><br/>
-        <button type="submit">Login</button>
+        <button type="submit" onClick={() => dispatch(login({email}))}>Login</button>
         <br/><br/>
         <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
       </form>
+    </div> 
     </div>
   );
 };

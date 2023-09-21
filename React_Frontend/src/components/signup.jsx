@@ -43,6 +43,7 @@ const Signup = () => {
   };
 
   return (
+    <div className='before'>
     <div className="container">
       <form className="signup-form" onSubmit={handleSignup}>
         <div className='title'>
@@ -97,6 +98,7 @@ const Signup = () => {
         <br/><br/>
         <p>Already have an account? <Link to="/login">Login</Link></p>
       </form>
+    </div>
     </div>
   );
 };

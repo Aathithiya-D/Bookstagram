@@ -1,5 +1,4 @@
-body {
-    /* background-color: #000; */
+.before {
     background-image: url("https://img.freepik.com/free-photo/high-angle-open-books-teacup_23-2149871504.jpg?w=1060&t=st=1694754528~exp=1694755128~hmac=be3e15d2f03e872467695ac3c8aca588367df6fc2653372025484ae2c4390997");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -33,7 +32,14 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     text-align: center;
+    opacity: 0.8;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 20px;
+
   }
+
+  
   
   /* Style form elements */
   .login-form, .signup-form {
