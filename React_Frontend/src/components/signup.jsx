@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import './ls.css';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
+import videobg from '../images/video.mp4';
+
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -43,6 +45,10 @@ const Signup = () => {
   };
 
   return (
+    <div className='bg'>
+      <video autoPlay loop muted playsInline className='back-video'>
+            <source src={videobg} type='video/mp4'/>
+        </video>
     <div className='before'>
     <div className="container">
       <form className="signup-form" onSubmit={handleSignup}>
@@ -98,6 +104,7 @@ const Signup = () => {
         <br/><br/>
         <p>Already have an account? <Link to="/login">Login</Link></p>
       </form>
+    </div>
     </div>
     </div>
   );

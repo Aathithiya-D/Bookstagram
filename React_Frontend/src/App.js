@@ -4,6 +4,7 @@ import Login from './components/login';
 import Signup from './components/signup';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AdminHome from './components/AdminBars';
+import Hi from './components/hi';
 
 
 function App() {

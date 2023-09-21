@@ -18,7 +18,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {logout} from '../features/admin';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
+
 
 const drawerWidth = 240;
 
@@ -71,6 +74,14 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function AdminBars() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    history.push('/login');
+  }
   
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -85,7 +96,7 @@ export default function AdminBars() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} color='red'>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -125,7 +136,7 @@ export default function AdminBars() {
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  <InboxIcon/>
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -138,8 +149,9 @@ export default function AdminBars() {
         <Typography paragraph>
           <h1>Hi!</h1>
           <h2>{admin.email}</h2>
+          <h2>{admin.password}</h2>
         </Typography>
-
+            <button onClick={handleLogout}>Logout</button>
       </Main>
     </Box>
   );

@@ -4,6 +4,8 @@ import './ls.css';
 import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom';
 import { useDispatch } from 'react-redux';
 import {login} from '../features/admin';
+import videobg from '../images/video.mp4';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -31,6 +33,10 @@ const Login = () => {
   }
 
   return (
+    <div className='bg'>
+      <video autoPlay loop muted playsInline className='back-video'>
+            <source src={videobg} type='video/mp4'/>
+        </video>
     <div className='before'>
     <div className="container">
       <form className="login-form" onSubmit={handleLogin}>
@@ -74,6 +80,7 @@ const Login = () => {
         <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
       </form>
     </div> 
+    </div>
     </div>
   );
 };
