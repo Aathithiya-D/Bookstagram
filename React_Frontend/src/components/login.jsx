@@ -30,9 +30,6 @@ const Login = () => {
     history.push('/adminDash');
   }
 
-  
-
-
   return (
     <div className='before'>
     <div className="container">
