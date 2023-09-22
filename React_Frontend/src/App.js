@@ -1,22 +1,22 @@
-import './App.css';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/login';
 import Signup from './components/signup';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import AdminHome from './components/AdminBars';
-import Hi from './components/hi';
-
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
-    <Router>
+    {/* <Router>
       <Switch>
       <Route path="/login" component={Login}/>
       <Route path="/signup" component={Signup}/>
-      <Route path="/adminDash" component={AdminHome}/>
       </Switch>
-    </Router>
+    </Router> */}
+    <NavBar/>
+    {/* <Footer/> */}
     </div>
   );
 }

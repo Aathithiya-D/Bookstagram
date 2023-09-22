@@ -29,7 +29,7 @@ const Login = () => {
     console.log('Email is valid:', email);
 
     
-    history.push('/adminDash');
+    // history.push('/');
   }
 
   return (
@@ -44,9 +44,11 @@ const Login = () => {
             Bookstagram.inc
         </div>
         <div className='login'>
+          <br/>
           <h1>
           Login
           </h1>
+          <br/>
           <h3>Welcome Back, Reading Redefined !</h3>
           </div>
         <TextField

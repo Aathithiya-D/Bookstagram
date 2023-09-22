@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import './ls.css';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
-import videobg from '../images/video.mp4';
+import videobg1 from '../images/signup.mp4';
 
 
 const Signup = () => {
@@ -47,7 +47,7 @@ const Signup = () => {
   return (
     <div className='bg'>
       <video autoPlay loop muted playsInline className='back-video'>
-            <source src={videobg} type='video/mp4'/>
+            <source src={videobg1} type='video/mp4'/>
         </video>
     <div className='before'>
     <div className="container">
@@ -55,8 +55,10 @@ const Signup = () => {
         <div className='title'>
           Bookstagram.inc
         </div>
+        <br/>
         <div className='signup'>
         <h1>Sign Up</h1>
+        <br/>
         <h3>Reading Made Easy, Anytime, Anywhere !!!!</h3>
         </div>
         <TextField
