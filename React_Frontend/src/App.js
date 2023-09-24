@@ -1,18 +1,19 @@
 import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './components/login';
-import Signup from './components/signup';
+import Home from './pages/Home';
+import Login from './pages/login';
+import Signup from './pages/signup';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-    {/* <Router>
+    <Router>
       <Switch>
       <Route path="/login" component={Login}/>
       <Route path="/signup" component={Signup}/>
+      <Route path="/home" component={Home}/>
       </Switch>
-    </Router> */}
+    </Router>
     </div>
   );
 }
