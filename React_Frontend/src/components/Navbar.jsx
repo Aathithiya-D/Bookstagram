@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import { Link } from 'react-router-dom/cjs/react-router-dom';
+
 
 export default function Navbar() {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
@@ -21,7 +23,7 @@ export default function Navbar() {
 
   return (
     <div>
-      <nav className="bg-gray-800 text-white flex flex-col md:flex-row justify-between items-center py-3 px-5">
+      <nav className="bg-gray-800 text-white flex flex-col md:flex-row justify-between items-center py-3 px-5 fixed w-full top-0">
         <h1 className="text-2xl font-extrabold">Bookstagram</h1>
         <div className="w-[400px] border border-gray-500 rounded flex items-center space-x-5">
           <input
@@ -39,38 +41,28 @@ export default function Navbar() {
         <div className="flex items-center mt-3 md:mt-0 space-x-5 text-xl">
           <ul className="flex flex-col md:flex-row justify-center items-center space-y-3 md:space-y-0 md:space-x-10 py-3">
             <li>
-              <a
-                href="#"
-                className="hover:bg-blue-500 hover:text-white rounded-lg px-3 py-1 transition-all duration-300 ease-in-out"
-              >
+              <Link to='/home' className="hover:bg-blue-500 hover:text-white rounded-lg px-3 py-1 transition-all duration-300 ease-in-out">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
-                className="hover:bg-blue-500 hover:text-white rounded-lg px-3 py-1 transition-all duration-300 ease-in-out"
-              >
+              <Link to="/books" className="hover:bg-blue-500 hover:text-white rounded-lg px-3 py-1 transition-all duration-300 ease-in-out">
                 My Books
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
-                className="hover:bg-blue-500 hover:text-white rounded-lg px-3 py-1 transition-all duration-300 ease-in-out"
-              >
+              <Link to='/community' className="hover:bg-blue-500 hover:text-white rounded-lg px-3 py-1 transition-all duration-300 ease-in-out">
                 Community
-              </a>
+              </Link>
             </li>
             <li>
               <div className="relative group">
-                <a
-                  href="#"
+                <button
                   className="hover:text-white rounded-lg px-3 py-1 transition-all duration-300 ease-in-out"
                   onClick={toggleProfileMenu}
                 >
                   <AccountCircleRoundedIcon />
-                </a>
+                </button>
                 {showProfileMenu && (
                   <div
                     className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg"
@@ -78,28 +70,14 @@ export default function Navbar() {
                   >
                     <ul className="py-2">
                       <li>
-                        <a
-                          href="#"
-                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                        >
+                        <Link to='/profile' className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
                           Your Profile
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="#"
-                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                        >
-                          Settings
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                        >
+                        <Link to='/login'  className="block px-4 py-2 text-gray-800 bg-white hover:text-red-500 rounded-lg transition-all duration-300 ease-in-out">
                           Sign out
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
