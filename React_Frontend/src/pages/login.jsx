@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
+import {TextField} from '@mui/material';
 import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom';
-import { useDispatch } from 'react-redux';
-import { login } from '../features/admin';
+import store from '../features/storage'
 import videobg from '../images/video.mp4';
+import { login } from '../features/admin';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const history = useHistory();
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -24,7 +25,15 @@ const Login = () => {
     }
 
     console.log('Email is valid:', email);
+
+    if(email.includes("@admin"))
+    {
+      history.push("/admin")
+      return;
+    }
+    else{
     history.push('/home');
+    }
   }
 
   return (
@@ -72,7 +81,7 @@ const Login = () => {
               autoComplete="current-password"
             />
             <br /><br />
-            <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300" onClick={() => dispatch(login({ email }))}>Login</button>
+            <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300" onClick={() => store.dispatch(login({ email }))}>Login</button>
             <br /><br />
             <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
           </form>

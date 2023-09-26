@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
+import { TextField } from '@mui/material';
 import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom';
 import videobg1 from '../images/signup.mp4';
 

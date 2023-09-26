@@ -1,11 +1,11 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import { useSelector } from 'react-redux/es/hooks/useSelector'
+import store from '../features/storage'
 import Footer from '../components/Footer';
 
 
 export default function Profile() {
-    const user = useSelector(state => state.admin.value);
+    const user = store.getState().admin.value  
 
   return (
     <div>
