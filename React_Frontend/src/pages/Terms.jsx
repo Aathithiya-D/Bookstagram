@@ -10,7 +10,7 @@ export default function Terms() {
         <h1 className="text-2xl font-bold py-3">1. Introduction</h1>
         <p className="mb-4">
           Welcome to Bookstagram! These terms and conditions govern your use of
-          our website and mobile application ("Platform"). By accessing or using
+          our website and mobile application ("Bookstagram"). By accessing or using
           our Platform, you agree to comply with and be bound by these terms and
           conditions. If you do not agree with these terms, please do not use
           our Platform.

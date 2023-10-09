@@ -8,7 +8,7 @@ export default function policy() {
         <Navbar/>
         <div className="bg-gray-100 p-4">
       <h1 className="text-3xl font-semibold mb-4">Privacy Policy</h1>
-      <p className="mb-2 py-3">Last Updated: 25.09.2023</p>
+      <p className="mb-2 py-3 mt-10 font-extrabold">Last Updated: 25.09.2023</p>
       <p className="mb-4">
         This Privacy Policy describes how Bookstagram collects, uses, and shares
         information from users of our social network platform for book lovers,

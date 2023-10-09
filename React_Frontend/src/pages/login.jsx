@@ -4,13 +4,14 @@ import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom';
 import store from '../features/storage'
 import videobg from '../images/video.mp4';
 import { login } from '../features/admin';
+import axios from 'axios';
+import User from '../axios/User';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  // const dispatch = useDispatch();
   const history = useHistory();
 
 
@@ -24,15 +25,41 @@ const Login = () => {
       return;
     }
 
-    console.log('Email is valid:', email);
+    const user = {};
 
-    if(email.includes("@admin"))
-    {
-      history.push("/admin")
-      return;
-    }
-    else{
-    history.push('/home');
+    user["email"] = email;
+    user["password"] = password;
+
+    try{
+
+      const res = User.loginUser(user);
+
+      res.then(data => {
+         
+          const token = data.token; 
+          const info = atob(token.split(".")[1]);
+
+          console.log(info);
+          const infoParse = JSON.parse(info);
+
+          console.log(infoParse.user.name);
+
+
+          if(infoParse.user.role==='ADMIN')
+          {
+            history.push('/admin');
+          }
+          else
+          {
+            history.push('/home');
+          }
+
+        }
+
+       )}
+    catch(err)
+    { 
+      console.log(err);
     }
   }
 

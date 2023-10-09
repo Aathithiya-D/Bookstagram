@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { TextField } from '@mui/material';
 import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom';
 import videobg1 from '../images/signup.mp4';
+import User from '../axios/User';
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -11,15 +12,6 @@ const Signup = () => {
   const [passwordError, setPasswordError] = useState('');
 
   const history = useHistory();
-
-  const validateEmail = () => {
-    const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-    if (!email.match(emailRegex)) {
-      setEmailError('Invalid email address');
-    } else {
-      setEmailError('');
-    }
-  };
 
   const validatePassword = () => {
     if (password.length < 8) {
@@ -31,24 +23,42 @@ const Signup = () => {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    validateEmail();
     validatePassword();
 
-    if (!emailError && !passwordError) {
-      const data = new FormData(e.currentTarget);
-      console.log({
-        name: data.get('name'),
-        email: data.get('email'),
-        password: data.get('password'),
-      });
+    const user = {};
+
+    user["name"] = name;
+    user["email"] = email;
+    user["password"] = password;
+    user['role'] = "USER";
+    try
+    {
+
+      const res = User.registerUser(user);
+
+      res.then(data => {
+        console.log(res);
+        if(data === "User registered successfully")
+        {
+          history.push('/login');
+        }
+        else
+        {
+          alert(data);
+        }
+      })
+
+    }
+    catch(err)
+    {
+      console.log(err);
     }
 
-    history.push('/home');
   };
 
   return (
     <div className='fixed inset-0 w-full h-full object-cover z-[-1]'>
-      <video autoPlay loop muted playsInline className='back-video'>
+      <video autoPlay  loop muted playsInline className='back-video'>
         <source src={videobg1} type='video/mp4'/>
       </video>
       <div className='before'>
@@ -85,6 +95,7 @@ const Signup = () => {
               label="Email Address"
               name="email"
               autoComplete="email"
+              type='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               autoFocus
