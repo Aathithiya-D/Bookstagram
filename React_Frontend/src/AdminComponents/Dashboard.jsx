@@ -1,25 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Card, CardActionArea, CardContent, CardHeader, CardMedia, IconButton, Typography } from '@mui/material'
-// import userPng from '../data/images/user-avatar.png'
-// import workerPng from '../data/images/worker-avatar.png'
 import EastIcon from '@mui/icons-material/East';
-// import orderImg from '../data/images/person-shopping.jpg'
-// import favImg from '../data/images/pngwing.com.png'
 import SidePanel from './SidePanel';
 import store from '../features/storage'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 export default function Dashboard(props) {
     
-    const users = store.getState().admin.users
-    const books = store.getState().admin.books
-    const events = store.getState().admin.events
+    const[userCount, setUserCount] = useState();
+    const[bookCount, setBookCount] = useState();
+
+    const token = localStorage.getItem('jwtToken');
+
+    const headers = {
+        'Authorization': `Bearer ${token}`
+      };
+
+    useEffect(() => {
+        fetchBooksCount();
+        fetchUsersCount();
+    }, []);
+
+    const fetchBooksCount = async () => {
+        try {   
+            console.log(headers);
+            const response = await axios.get('http://localhost:8080/api/v1/book/bookCount', { headers : headers});
+            setBookCount(response.data);
+        } catch (error) {
+            console.error('Error fetching books count:', error);
+        }
+    };
+
+    const fetchUsersCount = async () => {
+        try {   
+            console.log(headers);
+            const response = await axios.get('http://localhost:8080/api/v1/user/userCount', { headers : headers});
+            setUserCount(response.data);
+        } catch (error) {
+            console.error('Error fetching user count:', error);
+        }
+    };
 
     return (
-        <Box sx={{ mt: '95px', height: 'calc(100vh - 95px)', display: 'flex' }}>
+        
+        <Box sx={{ mt: '95px', height: 'calc(100vh - 95px)', display: 'flex' }} >
             <SidePanel />
             <Box sx={{ m: 5, display: 'flex', gap: 5 }}>
-                <Card sx={{ maxWidth: 345, maxHeight: 350 }}>
+            <Link to='/adminUsers'>
+                <Card sx={{ maxWidth: 345, maxHeight: 180 }}>
                     <CardActionArea>
                         <CardHeader
                             title='Users'
@@ -28,8 +58,8 @@ export default function Dashboard(props) {
                                     <EastIcon />
                                 </IconButton>
                             }
-                            subheader={
-                                <Typography>{ users.length }</Typography>
+                            subheader={ 
+                                <Typography>{ userCount }</Typography>
                             }
                         />
                         <CardMedia
@@ -45,8 +75,10 @@ export default function Dashboard(props) {
                         </CardContent>
                     </CardActionArea>
                 </Card>
-
-                <Card sx={{ maxWidth: 345, maxHeight: 350 }}>
+                </Link>
+                
+                <Link to='/adminBooks'>
+                <Card sx={{ maxWidth: 345, maxHeight: 180 }}>
                     <CardActionArea>
                         <CardHeader
                             title='Books'
@@ -56,7 +88,7 @@ export default function Dashboard(props) {
                                 </IconButton>
                             }
                             subheader={
-                                <Typography>{books.length}</Typography>
+                                <Typography>{ bookCount }</Typography>
                             }
                         />
                         <CardMedia
@@ -72,33 +104,34 @@ export default function Dashboard(props) {
                         </CardContent>
                     </CardActionArea>
                 </Card>
+                </Link>
 
-                <Card sx={{ maxWidth: 345, maxHeight: 350 }}>
-                    <CardActionArea>
-                        <CardHeader
-                            title='Events'
-                            action={
-                                <IconButton>
-                                    <EastIcon />
-                                </IconButton>
-                            }
-                            subheader={
-                                <Typography>{events.length}</Typography>
-                            }
-                        />
-                        <CardMedia
-                            component='img'
-                            height='180'
-                            // image={userPng}
-                            sx={{ objectFit: 'contain' }}
-                        />
-                        <CardContent>
-                            <Typography variant='body2'>
-                                This order card is used to track and manage individual events. It includes all of the relevant information about the events.
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                </Card>
+                    {/* <Card sx={{ maxWidth: 345, maxHeight: 350 }}>
+                        <CardActionArea>
+                            <CardHeader
+                                title='Events'
+                                action={
+                                    <IconButton>
+                                        <EastIcon />
+                                    </IconButton>
+                                }
+                                subheader={
+                                    <Typography>{events.length}</Typography>
+                                }
+                            />
+                            <CardMedia
+                                component='img'
+                                height='180'
+                                // image={userPng}
+                                sx={{ objectFit: 'contain' }}
+                            />
+                            <CardContent>
+                                <Typography variant='body2'>
+                                    This order card is used to track and manage individual events. It includes all of the relevant information about the events.
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card> */}
             </Box>
         </Box>
     )

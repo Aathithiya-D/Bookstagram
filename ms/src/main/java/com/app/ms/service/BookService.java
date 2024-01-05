@@ -2,17 +2,17 @@ package com.app.ms.service;
 
 import com.app.ms.dto.request.BookRequest;
 import com.app.ms.dto.response.BookResponse;
-import com.app.ms.dto.response.CountResponse;
+// import com.app.ms.dto.response.CountResponse;
 
 public interface BookService {
     
-    public boolean createBook(BookRequest request);
+    boolean createBook(BookRequest request);
 
-    BookResponse getBookDetails(int bid);
+    BookResponse getBookDetails(Long bid);
 
-    BookResponse updateBookDetails(BookRequest request, int bid);
+    boolean updateBookDetails(BookRequest request, Long bid);
 
-    String deleteBook(int bid);
+    boolean deleteBook(Long bid);
 
-    CountResponse getBookCountDetails();
+    // CountResponse getBookCountDetails();
 }

@@ -2,7 +2,7 @@ import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/fre
 import { faCopyright } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Link } from 'react-router-dom/cjs/react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 function Footer() {
@@ -26,16 +26,16 @@ function Footer() {
     </Link>
   </p>
   <p className='mb-4'>Social Media :
-    <a href="https://www.facebook.com/" className="text-gray-300 hover:text-white hover:underline mx-2">
+    <a href="https://www.facebook.com/" className="text-gray-300 hover:text-white hover:underline mx-2" target="_blank">
       <FontAwesomeIcon icon={faFacebook} />
     </a>
-    <a href="https://www.instagram.com/" className="text-gray-300 hover:text-white hover:underline mx-2">
+    <a href="https://www.instagram.com/" className="text-gray-300 hover:text-white hover:underline mx-2" target="_blank">
       <FontAwesomeIcon icon={faInstagram} />
     </a>
-    <a href="https://www.twitter.com/" className="text-gray-300 hover:text-white hover:underline mx-2">
+    <a href="https://www.twitter.com/" className="text-gray-300 hover:text-white hover:underline mx-2" target="_blank">
       <FontAwesomeIcon icon={faTwitter}/>
     </a>
-    <a href="https://www.linkedin.com/" className="text-gray-300 hover:text-white hover:underline mx-2">
+    <a href="https://www.linkedin.com/" className="text-gray-300 hover:text-white hover:underline mx-2" target="_blank">
       <FontAwesomeIcon icon={faLinkedin} />
     </a>
   </p>

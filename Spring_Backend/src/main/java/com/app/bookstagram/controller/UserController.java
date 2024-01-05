@@ -3,6 +3,7 @@ package com.app.bookstagram.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -38,13 +39,22 @@ public class UserController {
         return userResponse != null ? ResponseEntity.ok().body(userResponse) : ResponseEntity.notFound().build();
     }
 
-    
-
     @PutMapping("/edit/{uid}")
     public ResponseEntity<UserResponse> updateUser(@RequestBody UserRequest request, @PathVariable Long uid) {
         UserResponse userResponse = userService.updateUser(request, uid);
         return userResponse != null ? ResponseEntity.ok().body(userResponse) : ResponseEntity.notFound().build();
     }
 
+    @DeleteMapping("/delete/{uid}")
+    public String deleteUser(@PathVariable Long uid)
+    {
+        return userService.deleteUser(uid);
+    }
+
+    @GetMapping("/userCount")
+    public Long getUserCount()
+    {
+        return userService.getUserCount();
+    }
     
 }

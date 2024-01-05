@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-export default function policy() {
+export default function Policy() {
   return (
     <div>
         <Navbar/>

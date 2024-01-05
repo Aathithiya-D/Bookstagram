@@ -1,21 +1,25 @@
 package com.app.bookstagram.service;
 
 
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+
 import com.app.bookstagram.dto.request.BookRequest;
 import com.app.bookstagram.dto.request.Request;
 import com.app.bookstagram.dto.response.BookResponse;
-// import com.app.bookstagram.dto.response.CountResponse;
 
 public interface BookService {
     
-    public boolean createBook(Request request);
+    ResponseEntity<String> createBook(Request bookRequest);
+    
+    BookResponse getBookDetails(Long bid);
 
-    BookResponse getBookDetails(int bid);
+    List<BookResponse> getAllBookDetails();
 
-    BookResponse updateBookDetails(BookRequest request, int bid);
+    ResponseEntity<String> updateBookDetails(BookRequest request, Long bid);
 
-    String deleteBook(int bid);
+    ResponseEntity<String> deleteBook(Long bid);
 
-    // CountResponse getBookCountDetails();
-
+    Long getBookCount();
 }

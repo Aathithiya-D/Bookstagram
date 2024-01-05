@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { Link } from 'react-router-dom/cjs/react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export default function AdminNavbar() {
@@ -24,7 +24,9 @@ export default function AdminNavbar() {
   return (
     <div>
       <nav className="bg-gray-800 text-white flex flex-col md:flex-row justify-between items-center py-4 px-5 fixed w-full top-0">
+        <Link to='/admin'>
         <h1 className="text-2xl font-extrabold">Bookstagram</h1>
+        </Link>
         {/* <div className="w-[400px] border border-gray-500 rounded flex items-center space-x-5">
           <input
             className="w-full bg-gray-800 outline-0 py-2 px-5 text-xs"
@@ -55,7 +57,7 @@ export default function AdminNavbar() {
                   >
                     <ul className="py-2">
                       <li>
-                        <Link to='/profile' className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                        <Link to='/adminProfile' className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
                           Your Profile
                         </Link>
                       </li>

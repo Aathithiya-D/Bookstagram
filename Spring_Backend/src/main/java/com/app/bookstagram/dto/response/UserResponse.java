@@ -15,6 +15,7 @@ public class UserResponse {
     private Long uid;
     private String name;
     private String email;
+    private String password;
     private Boolean isEnabled;
     private Role role;
 }

@@ -1,36 +1,463 @@
-2023-10-09T09:29:38.460+05:30  INFO 24048 --- [restartedMain] c.a.bookstagram.BookstagramApplication   : Starting BookstagramApplication using Java 17.0.5 with PID 24048 (D:\Bookstagram - Application\App-Development\Spring_Backend\target\classes started by Lenovo in D:\Bookstagram - Application\App-Development\Spring_Backend)
-2023-10-09T09:29:38.504+05:30  INFO 24048 --- [restartedMain] c.a.bookstagram.BookstagramApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-10-09T09:29:38.655+05:30  INFO 24048 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-10-09T09:29:38.656+05:30  INFO 24048 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-10-09T09:29:40.928+05:30  INFO 24048 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-09T09:29:41.021+05:30  INFO 24048 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 82 ms. Found 2 JPA repository interfaces.
-2023-10-09T09:29:41.796+05:30  INFO 24048 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-10-09T09:29:41.808+05:30  INFO 24048 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-09T09:29:41.809+05:30  INFO 24048 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-09T09:29:41.908+05:30  INFO 24048 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-09T09:29:41.909+05:30  INFO 24048 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3249 ms
-2023-10-09T09:29:42.239+05:30  INFO 24048 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-09T09:29:42.340+05:30  INFO 24048 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-09T09:29:42.345+05:30  INFO 24048 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-10-09T09:29:42.537+05:30  INFO 24048 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-09T09:29:42.700+05:30  INFO 24048 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-09T09:29:42.719+05:30  INFO 24048 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-09T09:29:43.127+05:30  INFO 24048 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1f3dcd9f
-2023-10-09T09:29:43.130+05:30  INFO 24048 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-09T09:29:43.204+05:30  WARN 24048 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2023-10-09T09:29:43.623+05:30  INFO 24048 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-10-09T09:29:44.506+05:30  INFO 24048 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-09T09:29:44.611+05:30  INFO 24048 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-09T09:29:45.467+05:30  WARN 24048 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-10-09T09:29:45.928+05:30  INFO 24048 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2023-10-09T09:29:46.003+05:30  INFO 24048 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@16af48f1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4b5a3bdc, org.springframework.security.web.context.SecurityContextHolderFilter@9b039a0, org.springframework.security.web.header.HeaderWriterFilter@5d294c62, org.springframework.web.filter.CorsFilter@5b86b4d9, org.springframework.security.web.authentication.logout.LogoutFilter@4ae949c2, com.app.bookstagram.config.JwtAuthenticationFilter@7c110d7e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42f60853, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3368355e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@212e7f5c, org.springframework.security.web.session.SessionManagementFilter@a2708c0, org.springframework.security.web.access.ExceptionTranslationFilter@541f3dcf, org.springframework.security.web.access.intercept.AuthorizationFilter@57a14131]
-2023-10-09T09:29:46.447+05:30  INFO 24048 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-10-09T09:29:46.560+05:30  INFO 24048 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-09T09:29:46.576+05:30  INFO 24048 --- [restartedMain] c.a.bookstagram.BookstagramApplication   : Started BookstagramApplication in 8.802 seconds (process running for 9.316)
-2023-10-09T09:29:48.018+05:30  INFO 24048 --- [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-09T09:29:48.018+05:30  INFO 24048 --- [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-10-09T09:29:48.020+05:30  INFO 24048 --- [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-10-09T09:33:26.413+05:30  INFO 15256 --- [restartedMain] c.a.bookstagram.BookstagramApplication   : Starting BookstagramApplication using Java 17.0.5 with PID 15256 (D:\Bookstagram - Application\App-Development\Spring_Backend\target\classes started by Lenovo in D:\Bookstagram - Application\App-Development\Spring_Backend)
-2023-10-09T09:33:26.427+05:30  INFO 15256 --- [restartedMain] c.a.bookstagram.BookstagramApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-10-09T09:33:26.490+05:30  INFO 15256 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-10-09T09:33:26.491+05:30  INFO 15256 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-18T09:29:56.328+05:30  INFO 12396 --- [restartedMain] c.a.bookstagram.BookstagramApplication   : Starting BookstagramApplication using Java 17.0.5 with PID 12396 (D:\Bookstagram - Application\App-Development\Spring_Backend\target\classes started by Lenovo in D:\Bookstagram - Application\App-Development\Spring_Backend)
+2023-11-18T09:29:56.630+05:30  INFO 12396 --- [restartedMain] c.a.bookstagram.BookstagramApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-11-18T09:29:56.740+05:30  INFO 12396 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-18T09:29:56.741+05:30  INFO 12396 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-18T09:30:02.904+05:30  INFO 12396 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18T09:30:03.185+05:30  INFO 12396 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 258 ms. Found 4 JPA repository interfaces.
+2023-11-18T09:30:03.702+05:30  INFO 12396 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=cd521f52-f815-35a3-9d23-d5cda6ae7017
+2023-11-18T09:30:05.105+05:30  INFO 12396 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-18T09:30:05.132+05:30  INFO 12396 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-18T09:30:05.134+05:30  INFO 12396 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-11-18T09:30:05.459+05:30  INFO 12396 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-18T09:30:05.464+05:30  INFO 12396 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 8481 ms
+2023-11-18T09:30:06.132+05:30  INFO 12396 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18T09:30:06.251+05:30  INFO 12396 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-11-18T09:30:06.255+05:30  INFO 12396 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-11-18T09:30:06.552+05:30  INFO 12396 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-18T09:30:06.788+05:30  INFO 12396 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-18T09:30:06.833+05:30  INFO 12396 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-11-18T09:30:09.326+05:30  INFO 12396 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@255159d5
+2023-11-18T09:30:09.331+05:30  INFO 12396 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-11-18T09:30:09.791+05:30  WARN 12396 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-11-18T09:30:10.336+05:30  INFO 12396 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-18T09:30:11.608+05:30  INFO 12396 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18T09:30:12.548+05:30  INFO 12396 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18T09:30:13.060+05:30  INFO 12396 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-11-18T09:30:14.146+05:30  WARN 12396 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18T09:30:15.159+05:30  INFO 12396 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-11-18T09:30:15.266+05:30  INFO 12396 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@774df28e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5be5c0f8, org.springframework.security.web.context.SecurityContextHolderFilter@7238e46a, org.springframework.security.web.header.HeaderWriterFilter@320db759, org.springframework.web.filter.CorsFilter@351db65b, org.springframework.security.web.authentication.logout.LogoutFilter@51cdb30d, com.app.bookstagram.config.JwtAuthenticationFilter@52cb1854, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49e44a95, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2191449b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@66460907, org.springframework.security.web.session.SessionManagementFilter@628b3393, org.springframework.security.web.access.ExceptionTranslationFilter@7ed1f614, org.springframework.security.web.access.intercept.AuthorizationFilter@208190b7]
+2023-11-18T09:30:16.179+05:30  WARN 12396 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2023-11-18T09:30:16.376+05:30  INFO 12396 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-11-18T09:30:16.450+05:30  WARN 12396 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-11-18T09:30:16.657+05:30  INFO 12396 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-11-18T09:30:16.731+05:30  INFO 12396 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-11-18T09:30:16.741+05:30  INFO 12396 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-11-18T09:30:16.794+05:30  INFO 12396 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2023-11-18T09:30:16.795+05:30  INFO 12396 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2023-11-18T09:30:16.796+05:30  INFO 12396 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2023-11-18T09:30:16.796+05:30  INFO 12396 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2023-11-18T09:30:16.797+05:30  INFO 12396 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2023-11-18T09:30:16.798+05:30  INFO 12396 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2023-11-18T09:30:16.798+05:30  INFO 12396 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2023-11-18T09:30:17.433+05:30  INFO 12396 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-18T09:30:17.434+05:30  INFO 12396 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-11-18T09:30:17.440+05:30  INFO 12396 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2023-11-18T09:30:17.571+05:30  INFO 12396 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2023-11-18T09:30:17.582+05:30  INFO 12396 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2023-11-18T09:30:17.593+05:30  INFO 12396 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-11-18T09:30:17.621+05:30  INFO 12396 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1700280017619 with initial instances count: 2
+2023-11-18T09:30:17.660+05:30  INFO 12396 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application BOOKSTAGRAM with eureka with status UP
+2023-11-18T09:30:17.664+05:30  INFO 12396 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1700280017664, current=UP, previous=STARTING]
+2023-11-18T09:30:17.670+05:30  INFO 12396 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BOOKSTAGRAM/Mathaneeshwaran:Bookstagram:8080: registering service...
+2023-11-18T09:30:17.771+05:30  INFO 12396 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BOOKSTAGRAM/Mathaneeshwaran:Bookstagram:8080 - registration status: 204
+2023-11-18T09:30:17.784+05:30  INFO 12396 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-18T09:30:17.790+05:30  INFO 12396 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8080
+2023-11-18T09:30:18.168+05:30  INFO 12396 --- [restartedMain] c.a.bookstagram.BookstagramApplication   : Started BookstagramApplication in 23.184 seconds (process running for 24.389)
+2023-11-18T09:33:56.165+05:30 DEBUG 12396 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T09:33:56.252+05:30 DEBUG 12396 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T09:33:56.263+05:30 DEBUG 12396 --- [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T09:33:56.290+05:30 DEBUG 12396 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T09:33:57.944+05:30 DEBUG 12396 --- [http-nio-8080-exec-4] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2023-11-18T09:35:16.815+05:30  INFO 12396 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-11-18T09:35:22.532+05:30 DEBUG 12396 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T09:35:22.545+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T09:35:22.552+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T09:35:22.556+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T09:35:22.758+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2023-11-18T09:35:23.456+05:30 DEBUG 12396 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T09:35:23.458+05:30 DEBUG 12396 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T09:35:23.471+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T09:35:23.769+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T09:35:24.505+05:30 DEBUG 12396 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T09:35:24.551+05:30 DEBUG 12396 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T09:35:29.353+05:30 DEBUG 12396 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/mybook/addMyBook
+2023-11-18T09:35:29.357+05:30 DEBUG 12396 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/mybook/addMyBook
+2023-11-18T09:35:29.379+05:30 DEBUG 12396 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/mybook/addMyBook
+2023-11-18T09:35:35.616+05:30 DEBUG 12396 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/mybook/getAllMyBooks/2
+2023-11-18T09:35:35.617+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/mybook/getAllMyBooks/2
+2023-11-18T09:35:35.622+05:30 DEBUG 12396 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/mybook/getAllMyBooks/2
+2023-11-18T09:35:35.656+05:30 DEBUG 12396 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/mybook/getAllMyBooks/2
+2023-11-18T09:35:35.953+05:30 DEBUG 12396 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/mybook/getAllMyBooks/2
+2023-11-18T09:35:35.993+05:30 DEBUG 12396 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/mybook/getAllMyBooks/2
+2023-11-18T09:35:38.336+05:30 DEBUG 12396 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/mybook/updateRating/4/2/4
+2023-11-18T09:35:38.348+05:30 DEBUG 12396 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing PUT /api/v1/mybook/updateRating/4/2/4
+2023-11-18T09:35:38.372+05:30 DEBUG 12396 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured PUT /api/v1/mybook/updateRating/4/2/4
+2023-11-18T09:35:43.388+05:30 DEBUG 12396 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T09:35:43.390+05:30 DEBUG 12396 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T09:35:43.396+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T09:35:43.424+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T09:35:43.448+05:30 DEBUG 12396 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T09:35:43.468+05:30 DEBUG 12396 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T09:35:52.544+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/chat/messages
+2023-11-18T09:35:52.549+05:30 DEBUG 12396 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/chat/messages
+2023-11-18T09:35:52.567+05:30 DEBUG 12396 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/chat/messages
+2023-11-18T09:35:53.552+05:30 DEBUG 12396 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/chat/messages
+2023-11-18T09:35:53.570+05:30 DEBUG 12396 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/chat/messages
+2023-11-18T09:35:58.735+05:30 DEBUG 12396 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T09:35:58.736+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T09:35:58.753+05:30 DEBUG 12396 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T09:35:58.802+05:30 DEBUG 12396 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T09:35:58.823+05:30 DEBUG 12396 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T09:35:58.842+05:30 DEBUG 12396 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T09:35:59.564+05:30 DEBUG 12396 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/mybook/getAllMyBooks/2
+2023-11-18T09:35:59.568+05:30 DEBUG 12396 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/mybook/getAllMyBooks/2
+2023-11-18T09:35:59.612+05:30 DEBUG 12396 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/mybook/getAllMyBooks/2
+2023-11-18T09:35:59.617+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/mybook/getAllMyBooks/2
+2023-11-18T09:35:59.629+05:30 DEBUG 12396 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/mybook/getAllMyBooks/2
+2023-11-18T09:35:59.654+05:30 DEBUG 12396 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/mybook/getAllMyBooks/2
+2023-11-18T09:36:01.666+05:30 DEBUG 12396 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/find/2
+2023-11-18T09:36:01.666+05:30 DEBUG 12396 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/find/2
+2023-11-18T09:36:01.673+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/find/2
+2023-11-18T09:36:01.700+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/find/2
+2023-11-18T09:36:01.774+05:30 DEBUG 12396 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/find/2
+2023-11-18T09:36:01.795+05:30 DEBUG 12396 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/find/2
+2023-11-18T09:36:22.257+05:30 DEBUG 12396 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T09:36:22.261+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T09:36:22.263+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T09:36:22.264+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T09:36:22.381+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2023-11-18T09:36:22.705+05:30 DEBUG 12396 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/bookCount
+2023-11-18T09:36:22.711+05:30 DEBUG 12396 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/userCount
+2023-11-18T09:36:22.715+05:30 DEBUG 12396 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/userCount
+2023-11-18T09:36:22.714+05:30 DEBUG 12396 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/bookCount
+2023-11-18T09:36:22.728+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/bookCount
+2023-11-18T09:36:22.728+05:30 DEBUG 12396 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/userCount
+2023-11-18T09:36:22.753+05:30 DEBUG 12396 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/userCount
+2023-11-18T09:36:22.816+05:30 DEBUG 12396 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/userCount
+2023-11-18T09:36:22.945+05:30 DEBUG 12396 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/userCount
+2023-11-18T09:36:23.061+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/bookCount
+2023-11-18T09:36:23.830+05:30 DEBUG 12396 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/bookCount
+2023-11-18T09:36:23.864+05:30 DEBUG 12396 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/bookCount
+2023-11-18T09:36:26.685+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/get
+2023-11-18T09:36:26.685+05:30 DEBUG 12396 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/get
+2023-11-18T09:36:26.693+05:30 DEBUG 12396 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/get
+2023-11-18T09:36:26.714+05:30 DEBUG 12396 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/get
+2023-11-18T09:36:26.801+05:30 DEBUG 12396 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/get
+2023-11-18T09:36:26.827+05:30 DEBUG 12396 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/get
+2023-11-18T09:36:28.353+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T09:36:28.354+05:30 DEBUG 12396 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T09:36:28.361+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T09:36:28.385+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T09:36:28.412+05:30 DEBUG 12396 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T09:36:28.440+05:30 DEBUG 12396 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T09:36:29.652+05:30 DEBUG 12396 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/chat/messages
+2023-11-18T09:36:29.657+05:30 DEBUG 12396 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/chat/messages
+2023-11-18T09:36:29.675+05:30 DEBUG 12396 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/chat/messages
+2023-11-18T09:36:29.719+05:30 DEBUG 12396 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/chat/messages
+2023-11-18T09:36:29.740+05:30 DEBUG 12396 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/chat/messages
+2023-11-18T09:36:32.630+05:30 DEBUG 12396 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/userCount
+2023-11-18T09:36:32.630+05:30 DEBUG 12396 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/bookCount
+2023-11-18T09:36:32.631+05:30 DEBUG 12396 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/bookCount
+2023-11-18T09:36:32.633+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/userCount
+2023-11-18T09:36:32.638+05:30 DEBUG 12396 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/userCount
+2023-11-18T09:36:32.638+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/bookCount
+2023-11-18T09:36:32.654+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/bookCount
+2023-11-18T09:36:32.655+05:30 DEBUG 12396 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/userCount
+2023-11-18T09:36:32.681+05:30 DEBUG 12396 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/userCount
+2023-11-18T09:36:32.683+05:30 DEBUG 12396 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/bookCount
+2023-11-18T09:36:32.701+05:30 DEBUG 12396 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/userCount
+2023-11-18T09:36:32.795+05:30 DEBUG 12396 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/bookCount
+2023-11-18T09:36:41.916+05:30 DEBUG 12396 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/find/1
+2023-11-18T09:36:41.916+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/find/1
+2023-11-18T09:36:41.922+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/find/1
+2023-11-18T09:36:41.940+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/find/1
+2023-11-18T09:36:41.961+05:30 DEBUG 12396 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/find/1
+2023-11-18T09:36:41.981+05:30 DEBUG 12396 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/find/1
+2023-11-18T09:36:50.361+05:30 DEBUG 12396 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/bookCount
+2023-11-18T09:36:50.362+05:30 DEBUG 12396 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/userCount
+2023-11-18T09:36:50.364+05:30 DEBUG 12396 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/bookCount
+2023-11-18T09:36:50.364+05:30 DEBUG 12396 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/userCount
+2023-11-18T09:36:50.366+05:30 DEBUG 12396 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/bookCount
+2023-11-18T09:36:50.366+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/userCount
+2023-11-18T09:36:50.396+05:30 DEBUG 12396 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/userCount
+2023-11-18T09:36:50.401+05:30 DEBUG 12396 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/bookCount
+2023-11-18T09:36:50.406+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/userCount
+2023-11-18T09:36:50.421+05:30 DEBUG 12396 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/userCount
+2023-11-18T09:36:50.446+05:30 DEBUG 12396 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/bookCount
+2023-11-18T09:36:50.465+05:30 DEBUG 12396 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/bookCount
+2023-11-18T11:17:27.797+05:30  INFO 18808 --- [restartedMain] c.a.bookstagram.BookstagramApplication   : Starting BookstagramApplication using Java 17.0.5 with PID 18808 (D:\Bookstagram - Application\App-Development\Spring_Backend\target\classes started by Lenovo in D:\Bookstagram - Application\App-Development\Spring_Backend)
+2023-11-18T11:17:27.938+05:30  INFO 18808 --- [restartedMain] c.a.bookstagram.BookstagramApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-11-18T11:17:28.094+05:30  INFO 18808 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-18T11:17:28.095+05:30  INFO 18808 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-18T11:17:31.667+05:30  INFO 18808 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18T11:17:32.080+05:30  INFO 18808 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 380 ms. Found 4 JPA repository interfaces.
+2023-11-18T11:17:32.726+05:30  INFO 18808 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=cd521f52-f815-35a3-9d23-d5cda6ae7017
+2023-11-18T11:17:34.145+05:30  INFO 18808 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-18T11:17:34.175+05:30  INFO 18808 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-18T11:17:34.177+05:30  INFO 18808 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-11-18T11:17:34.351+05:30  INFO 18808 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-18T11:17:34.352+05:30  INFO 18808 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6255 ms
+2023-11-18T11:17:35.004+05:30  INFO 18808 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18T11:17:35.169+05:30  INFO 18808 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-11-18T11:17:35.174+05:30  INFO 18808 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-11-18T11:17:35.576+05:30  INFO 18808 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-18T11:17:35.873+05:30  INFO 18808 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-18T11:17:35.907+05:30  INFO 18808 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-11-18T11:17:37.417+05:30  INFO 18808 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3b1a0fbd
+2023-11-18T11:17:37.426+05:30  INFO 18808 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-11-18T11:17:37.676+05:30  WARN 18808 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-11-18T11:17:38.364+05:30  INFO 18808 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-18T11:17:40.016+05:30  INFO 18808 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18T11:17:40.532+05:30  INFO 18808 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18T11:17:41.348+05:30  INFO 18808 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-11-18T11:17:42.643+05:30  WARN 18808 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18T11:17:43.834+05:30  INFO 18808 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-11-18T11:17:43.943+05:30  INFO 18808 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2769de84, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d061826, org.springframework.security.web.context.SecurityContextHolderFilter@26b24df, org.springframework.security.web.header.HeaderWriterFilter@4b8c6507, org.springframework.web.filter.CorsFilter@5fc245a1, org.springframework.security.web.authentication.logout.LogoutFilter@6514c378, com.app.bookstagram.config.JwtAuthenticationFilter@4f9948bf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@33bfbbdb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3da371a6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45309843, org.springframework.security.web.session.SessionManagementFilter@5ce0de4e, org.springframework.security.web.access.ExceptionTranslationFilter@44ccc91a, org.springframework.security.web.access.intercept.AuthorizationFilter@547fd758]
+2023-11-18T11:17:44.784+05:30  WARN 18808 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2023-11-18T11:17:45.000+05:30  INFO 18808 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-11-18T11:17:45.093+05:30  WARN 18808 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-11-18T11:17:45.283+05:30  INFO 18808 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-11-18T11:17:45.373+05:30  INFO 18808 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-11-18T11:17:45.381+05:30  INFO 18808 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-11-18T11:17:45.434+05:30  INFO 18808 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2023-11-18T11:17:45.435+05:30  INFO 18808 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2023-11-18T11:17:45.436+05:30  INFO 18808 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2023-11-18T11:17:45.438+05:30  INFO 18808 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2023-11-18T11:17:45.439+05:30  INFO 18808 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2023-11-18T11:17:45.440+05:30  INFO 18808 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2023-11-18T11:17:45.441+05:30  INFO 18808 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2023-11-18T11:17:46.093+05:30  INFO 18808 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2023-11-18T11:17:46.097+05:30  INFO 18808 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2023-11-18T11:17:46.103+05:30  INFO 18808 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-11-18T11:17:46.114+05:30  INFO 18808 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1700286466112 with initial instances count: 1
+2023-11-18T11:17:46.122+05:30  INFO 18808 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application BOOKSTAGRAM with eureka with status UP
+2023-11-18T11:17:46.126+05:30  INFO 18808 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1700286466126, current=UP, previous=STARTING]
+2023-11-18T11:17:46.130+05:30  INFO 18808 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BOOKSTAGRAM/Mathaneeshwaran:Bookstagram:8080: registering service...
+2023-11-18T11:17:46.191+05:30  INFO 18808 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-18T11:17:46.194+05:30  INFO 18808 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8080
+2023-11-18T11:17:46.229+05:30  INFO 18808 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BOOKSTAGRAM/Mathaneeshwaran:Bookstagram:8080 - registration status: 204
+2023-11-18T11:17:46.388+05:30  INFO 18808 --- [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-18T11:17:46.390+05:30  INFO 18808 --- [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-11-18T11:17:46.394+05:30  INFO 18808 --- [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-11-18T11:17:46.835+05:30  INFO 18808 --- [restartedMain] c.a.bookstagram.BookstagramApplication   : Started BookstagramApplication in 20.256 seconds (process running for 21.786)
+2023-11-18T11:22:46.627+05:30  INFO 18808 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-11-18T11:24:36.747+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T11:24:36.791+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T11:24:38.097+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T11:24:38.103+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T11:24:39.128+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:24:39.128+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:24:39.743+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T11:24:39.743+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T11:24:43.902+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T11:24:43.917+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T11:24:43.924+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:24:43.931+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T11:24:50.541+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2023-11-18T11:24:50.543+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2023-11-18T11:24:50.548+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2023-11-18T11:25:18.704+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T11:25:18.712+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T11:25:18.715+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:25:18.718+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T11:25:18.837+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2023-11-18T11:26:41.138+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T11:26:41.141+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T11:26:41.143+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:26:41.145+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T11:26:41.277+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2023-11-18T11:26:41.974+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T11:26:41.975+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T11:26:41.984+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T11:26:42.422+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T11:26:43.374+05:30 DEBUG 18808 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T11:26:43.405+05:30 DEBUG 18808 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T11:27:47.438+05:30  INFO 18808 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-11-18T11:32:47.440+05:30  INFO 18808 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-11-18T11:34:33.753+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T11:34:33.824+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T11:34:33.827+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:34:33.834+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T11:34:34.031+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2023-11-18T11:34:34.684+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T11:34:34.685+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T11:34:34.693+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T11:34:34.761+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T11:34:35.002+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T11:34:35.076+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T11:36:26.313+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/register
+2023-11-18T11:36:26.323+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
+2023-11-18T11:36:26.327+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:36:26.332+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
+2023-11-18T11:37:47.451+05:30  INFO 18808 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-11-18T11:40:26.974+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T11:40:26.980+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T11:40:26.981+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:40:26.983+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T11:40:27.086+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2023-11-18T11:40:28.144+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T11:40:28.147+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T11:40:28.157+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T11:40:28.292+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T11:40:28.361+05:30 DEBUG 18808 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T11:40:28.394+05:30 DEBUG 18808 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T11:40:42.593+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T11:40:42.594+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T11:40:42.604+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T11:40:42.729+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T11:40:42.742+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T11:40:42.765+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T11:41:01.607+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T11:41:01.614+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T11:41:01.713+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:41:01.715+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T11:41:01.868+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2023-11-18T11:41:02.593+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/bookCount
+2023-11-18T11:41:02.600+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/userCount
+2023-11-18T11:41:02.609+05:30 DEBUG 18808 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/userCount
+2023-11-18T11:41:02.609+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/bookCount
+2023-11-18T11:41:02.626+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/userCount
+2023-11-18T11:41:02.644+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/bookCount
+2023-11-18T11:41:02.654+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/userCount
+2023-11-18T11:41:02.914+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/userCount
+2023-11-18T11:41:02.996+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/userCount
+2023-11-18T11:41:03.210+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/bookCount
+2023-11-18T11:41:03.240+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/bookCount
+2023-11-18T11:41:12.722+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/bookCount
+2023-11-18T11:41:12.726+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/userCount
+2023-11-18T11:41:12.727+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/bookCount
+2023-11-18T11:41:12.731+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/userCount
+2023-11-18T11:41:12.737+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/bookCount
+2023-11-18T11:41:12.741+05:30 DEBUG 18808 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/userCount
+2023-11-18T11:41:12.757+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/bookCount
+2023-11-18T11:41:12.774+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/bookCount
+2023-11-18T11:41:12.796+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/bookCount
+2023-11-18T11:41:13.291+05:30 DEBUG 18808 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/userCount
+2023-11-18T11:41:13.311+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/userCount
+2023-11-18T11:41:13.346+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/userCount
+2023-11-18T11:41:17.834+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/get
+2023-11-18T11:41:17.834+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/get
+2023-11-18T11:41:17.841+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/get
+2023-11-18T11:41:17.861+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/get
+2023-11-18T11:41:18.659+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/get
+2023-11-18T11:41:18.678+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/get
+2023-11-18T11:41:32.691+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/delete/2
+2023-11-18T11:41:32.697+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing DELETE /api/v1/user/delete/2
+2023-11-18T11:41:32.817+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured DELETE /api/v1/user/delete/2
+2023-11-18T11:41:33.238+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/get
+2023-11-18T11:41:33.243+05:30 DEBUG 18808 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/get
+2023-11-18T11:41:33.257+05:30 DEBUG 18808 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/get
+2023-11-18T11:41:43.377+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/delete/8
+2023-11-18T11:41:43.384+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing DELETE /api/v1/user/delete/8
+2023-11-18T11:41:43.412+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured DELETE /api/v1/user/delete/8
+2023-11-18T11:41:43.594+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/get
+2023-11-18T11:41:43.599+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/get
+2023-11-18T11:41:43.616+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/get
+2023-11-18T11:41:58.579+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T11:41:58.588+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T11:41:58.592+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:41:58.594+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T11:41:58.708+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to find user 'aravind@user.com'
+2023-11-18T11:41:58.725+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
+2023-11-18T11:41:58.837+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /error
+2023-11-18T11:41:58.843+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:41:58.848+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
+2023-11-18T11:42:47.463+05:30  INFO 18808 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-11-18T11:42:58.395+05:30 DEBUG 18808 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T11:42:58.401+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T11:42:58.403+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:42:58.404+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T11:42:58.508+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2023-11-18T11:42:59.235+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/bookCount
+2023-11-18T11:42:59.240+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/userCount
+2023-11-18T11:42:59.247+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/bookCount
+2023-11-18T11:42:59.250+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/userCount
+2023-11-18T11:42:59.255+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/bookCount
+2023-11-18T11:42:59.264+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/userCount
+2023-11-18T11:42:59.287+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/bookCount
+2023-11-18T11:42:59.287+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/userCount
+2023-11-18T11:42:59.298+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/userCount
+2023-11-18T11:42:59.320+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/userCount
+2023-11-18T11:42:59.340+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/bookCount
+2023-11-18T11:43:00.083+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/bookCount
+2023-11-18T11:43:00.504+05:30 DEBUG 18808 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/get
+2023-11-18T11:43:00.505+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/get
+2023-11-18T11:43:00.516+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/get
+2023-11-18T11:43:00.538+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/get
+2023-11-18T11:43:00.553+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/get
+2023-11-18T11:43:00.575+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/get
+2023-11-18T11:43:12.372+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T11:43:12.376+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T11:43:12.379+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:43:12.382+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T11:43:12.483+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to find user 'suray@user.com'
+2023-11-18T11:43:12.526+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
+2023-11-18T11:43:12.528+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing POST /error
+2023-11-18T11:43:12.530+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:43:12.531+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
+2023-11-18T11:43:17.971+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T11:43:17.981+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T11:43:17.985+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:43:17.990+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T11:43:18.143+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to find user 'suray@user.com'
+2023-11-18T11:43:18.149+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
+2023-11-18T11:43:18.151+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /error
+2023-11-18T11:43:18.152+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:43:18.155+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
+2023-11-18T11:43:38.197+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/register
+2023-11-18T11:43:38.204+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
+2023-11-18T11:43:38.207+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:43:38.210+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
+2023-11-18T11:43:48.092+05:30 DEBUG 18808 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T11:43:48.102+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T11:43:48.105+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:43:48.109+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T11:43:48.260+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2023-11-18T11:43:48.586+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T11:43:48.587+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T11:43:48.597+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T11:43:48.624+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T11:43:48.695+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T11:43:48.710+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T11:43:55.246+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/find/9
+2023-11-18T11:43:55.246+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/find/9
+2023-11-18T11:43:55.250+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/find/9
+2023-11-18T11:43:55.262+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/find/9
+2023-11-18T11:43:55.281+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/find/9
+2023-11-18T11:43:55.302+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/find/9
+2023-11-18T11:44:22.751+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/edit/9
+2023-11-18T11:44:22.759+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing PUT /api/v1/user/edit/9
+2023-11-18T11:44:22.774+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured PUT /api/v1/user/edit/9
+2023-11-18T11:44:23.211+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/find/9
+2023-11-18T11:44:23.211+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/user/find/9
+2023-11-18T11:44:23.216+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/find/9
+2023-11-18T11:44:23.239+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/find/9
+2023-11-18T11:44:23.260+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/find/9
+2023-11-18T11:44:23.279+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/find/9
+2023-11-18T11:44:33.426+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/chat/messages
+2023-11-18T11:44:33.434+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/chat/messages
+2023-11-18T11:44:33.454+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/chat/messages
+2023-11-18T11:44:33.551+05:30 DEBUG 18808 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/chat/messages
+2023-11-18T11:44:33.563+05:30 DEBUG 18808 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/chat/messages
+2023-11-18T11:45:11.142+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/chat/addMessage
+2023-11-18T11:45:11.147+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/chat/addMessage
+2023-11-18T11:45:11.159+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/chat/addMessage
+2023-11-18T11:45:55.224+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T11:45:55.225+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/book/getAllBooks
+2023-11-18T11:45:55.228+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T11:45:55.242+05:30 DEBUG 18808 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T11:45:55.253+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/book/getAllBooks
+2023-11-18T11:45:55.264+05:30 DEBUG 18808 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/book/getAllBooks
+2023-11-18T11:46:43.689+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/mybook/addMyBook
+2023-11-18T11:46:43.691+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/mybook/addMyBook
+2023-11-18T11:46:43.701+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/mybook/addMyBook
+2023-11-18T11:46:49.659+05:30 DEBUG 18808 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/mybook/getAllMyBooks/9
+2023-11-18T11:46:49.661+05:30 DEBUG 18808 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/mybook/getAllMyBooks/9
+2023-11-18T11:46:49.668+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/mybook/getAllMyBooks/9
+2023-11-18T11:46:49.695+05:30 DEBUG 18808 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/mybook/getAllMyBooks/9
+2023-11-18T11:46:49.717+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/mybook/getAllMyBooks/9
+2023-11-18T11:46:49.731+05:30 DEBUG 18808 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/mybook/getAllMyBooks/9
+2023-11-18T11:46:57.732+05:30 DEBUG 18808 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/mybook/updateRating/2/9/4
+2023-11-18T11:46:57.743+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing PUT /api/v1/mybook/updateRating/2/9/4
+2023-11-18T11:46:57.768+05:30 DEBUG 18808 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured PUT /api/v1/mybook/updateRating/2/9/4
+2023-11-18T11:47:47.470+05:30  INFO 18808 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-11-18T11:51:36.510+05:30 DEBUG 18808 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/v1/auth/login
+2023-11-18T11:51:36.517+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2023-11-18T11:51:36.520+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:51:36.523+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2023-11-18T11:51:37.102+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to find user 'aathithiya.deepas@gmail.com'
+2023-11-18T11:51:37.104+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
+2023-11-18T11:51:37.105+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /error
+2023-11-18T11:51:37.107+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2023-11-18T11:51:37.107+05:30 DEBUG 18808 --- [http-nio-8080-exec-2] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
+2023-11-18T11:52:47.473+05:30  INFO 18808 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

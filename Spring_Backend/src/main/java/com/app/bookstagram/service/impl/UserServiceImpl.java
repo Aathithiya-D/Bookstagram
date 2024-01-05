@@ -3,6 +3,7 @@ package com.app.bookstagram.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.app.bookstagram.dto.request.UserRequest;
@@ -22,6 +23,9 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
+    private final PasswordEncoder passwordEncoder;
+
+
     @Override
     public List<UserResponse> getAllUsers() {
         List<User> userList = userRepository.findAll();
@@ -39,19 +43,23 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponse updateUser(UserRequest request, Long uid) {
+       
         User user = userRepository.findByUid(uid);
-        User newUser = new User();
-        if (user != null) {
-            newUser = User.builder()
-                    .name(request.getName())
-                    .email(request.getEmail())
-                    .password(request.getPassword())
-                    .role(request.getRole())
-                    .isEnabled(request.getIsEnabled())
-                    .build();
-            userRepository.save(newUser);
+        if(user != null)
+        {
+            if(request.getName() == null)
+            user.setName(user.getName());
+            else
+            user.setName(request.getName());
+
+            if(request.getPassword() == null)
+            user.setPassword(user.getPassword());
+            else
+            user.setPassword(passwordEncoder.encode(request.getPassword()));
+
+            userRepository.save(user);
         }
-        return mapUserToUserResponse(newUser);
+        return mapUserToUserResponse(user);
     }
 
 
@@ -63,6 +71,19 @@ public class UserServiceImpl implements UserService {
                 .role(user.getRole())
                 .isEnabled(user.getIsEnabled())
                 .build();
+    }
+
+    @Override
+    public String deleteUser(Long uid)
+    {
+        userRepository.deleteByUid(uid);
+        return "Deleted Successfully";
+    }
+
+    @Override
+    public Long getUserCount()
+    {
+        return userRepository.userCount();
     }
 
     

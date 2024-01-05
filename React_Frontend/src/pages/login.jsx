@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import {TextField} from '@mui/material';
-import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom';
 import store from '../features/storage'
-import videobg from '../images/video.mp4';
+import videobg1 from '../images/signup.mp4';
 import { login } from '../features/admin';
-import axios from 'axios';
 import User from '../axios/User';
+import { Link, useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState(''); 
 
-  const history = useHistory();
+
+  const navigate = useNavigate();
 
 
   const handleLogin = (e) => {
@@ -31,32 +32,45 @@ const Login = () => {
     user["password"] = password;
 
     try{
+      const res = User.loginUser(user)
+      .then((response) => {
+        toast.success("Login Successful")
+         console.log(response);
+          const token = response.data.token; 
 
-      const res = User.loginUser(user);
-
-      res.then(data => {
-         
-          const token = data.token; 
+          window.localStorage.setItem("jwtToken",token);
+          
           const info = atob(token.split(".")[1]);
 
           console.log(info);
           const infoParse = JSON.parse(info);
+          const uid = (infoParse.user.uid);
+          const role = (infoParse.user.role);
+
+          window.localStorage.setItem("uid", uid);
+          window.localStorage.setItem("role", role);
 
           console.log(infoParse.user.name);
 
 
-          if(infoParse.user.role==='ADMIN')
+          if(role==='ADMIN')
           {
-            history.push('/admin');
-          }
+            window.location.href = '/admin'
+            // navigate('/admin')
+          } 
           else
           {
-            history.push('/home');
+            // history.push('/home');
+            window.location.href  = '/home'
+            // navigate('/home')
           }
-
         }
-
-       )}
+       )
+      .catch((err)=>{ 
+        toast.error("Invalid Credentials")
+        console.log(err)
+      });
+      }
     catch(err)
     { 
       console.log(err);
@@ -65,8 +79,12 @@ const Login = () => {
 
   return (
     <div className="fixed inset-0 w-full h-full object-cover z-[-1]">
-      <video autoPlay loop muted playsInline className="back-video">
-        <source src={videobg} type="video/mp4" />
+      <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
+      <video autoPlay  loop muted playsInline className='back-video'>
+        <source src={videobg1} type='video/mp4'/>
       </video>
       <div className="before">
       <div className="container bg-white p-6 rounded shadow-md text-center opacity-80 backdrop-blur-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-md w-full overflow-x-hidden">       

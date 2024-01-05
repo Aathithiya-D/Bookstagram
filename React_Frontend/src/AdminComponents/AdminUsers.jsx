@@ -1,93 +1,80 @@
-import React, { useState } from 'react'
-import SidePanel from './SidePanel'
-import { Backdrop, Box, Button, Paper, Table, TableBody, TableCell, TableHead, TableRow, Tooltip } from '@mui/material'
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import NewOrder from './AddBooks';
-import store from '../features/storage';
+import React, { useEffect, useState } from 'react';
+import SidePanel from './SidePanel';
+import { Box, Table, TableBody, TableCell, TableHead, TableRow, Button, Typography } from '@mui/material';
 import AdminNavbar from './AdminNavbar';
-import AddBooks from './AddBooks';
-import AddUsers from './AddUsers';
+import axios from 'axios';
 
+export default function Users() {
+  const [users, setUsers] = useState([]);
 
-export default function Users() { 
-    const [open, setOpen] = useState(false)
-    
-    const headCells = [
-        {
-            id: 'user_id',
-            numeric: true,
-            disablePadding: true,
-            label: 'User ID'
-        },
-        {
-            id: 'name',
-            numeric: false,
-            disablePadding: false,
-            label: 'Name'
-        },
-        {
-            id: 'email',
-            numeric: true,
-            disablePadding: true,
-            label: 'Email'
-        },
-        // {
-        //     id: 'dop',
-        //     numeric: true,
-        //     disablePadding: true,
-        //     label: 'DOP'
-        // }
-    ]
+  const token = localStorage.getItem('jwtToken');
 
-    const rows = store.getState().admin.users
+  const headers = {
+    'Authorization': `Bearer ${token}`
+  };
 
-    return (
-        <>
-            <AdminNavbar />
-            <Box sx={{ mt: '95px', height: 'calc(100vh - 95px)', width: '100%', display: 'flex' }}>
-                <SidePanel />
-                <Box sx={{ height: '100%', width: 'calc(100% - 325px)' }}>
-                    <Button onClick={() => setOpen(true)} sx={{ mt: 5, ml: 4 }} color='primary' variant='contained' startIcon={<AddShoppingCartIcon />}>Add Users</Button>
+  useEffect(() => {
+    fetchUsers();
+  }, []); 
 
-                    <Backdrop
-                        sx={{ color: '#fff', zIndex: 1 }}
-                        open={open}
-                    >
-                        <AddUsers setOpen={setOpen} />
-                    </Backdrop>
+  const fetchUsers = async () => {
+    try {   
+      const response = await axios.get('http://localhost:8080/api/v1/user/get', { headers: headers });
+      // Ensure that response.data is an array, handle non-array response if necessary
+      if(Array.isArray(response.data)) {
+        setUsers(response.data);
+      } else {
+        // Handle non-array response, setUsers([]) or handle it based on your requirement
+        console.error('Invalid response data:', response.data);
+      }
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    }
+  };
 
-                    <Box sx={{ mt: 8, ml: 3, mr: 3, overflowY: 'scroll', maxHeight: '700px' }}>
-                        <Table>
-                            <TableHead>
-                                <TableRow>
-                                    {
-                                        headCells?.map((headCell, id) => (
-                                            <TableCell
-                                                key={id}
-                                                align='left'
-                                                padding={headCell.disablePadding ? 'none' : 'normal'}
-                                            >
-                                                { headCell.label }
-                                            </TableCell>
-                                        ))
-                                    }
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {
-                                    rows?.map((row, id) => (
-                                        <TableRow key={id} hover >
-                                            <TableCell scope='row'>{row?.id}</TableCell>
-                                            <TableCell>{row?.name}</TableCell>
-                                            <TableCell>{row?.email}</TableCell>
-                                        </TableRow>
-                                    ))
-                                }
-                            </TableBody>
-                        </Table>
-                    </Box>
-                </Box>
-            </Box>
-        </>
-    )
+  const deleteUser = async (uid) => {
+    try {
+      await axios.delete(`http://localhost:8080/api/v1/user/delete/${uid}`, { headers: headers });
+      fetchUsers(); // Refresh the user list after deletion
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
+  };
+
+  return (
+    <>
+      <AdminNavbar />
+      <Box sx={{ mt: '95px', height: 'calc(100vh - 95px)', width: '100%', display: 'flex', backgroundColor: 'whitesmoke' }}>
+        <SidePanel />
+        <Box sx={{ height: '100%', width: 'calc(100% - 325px)' }}>
+          <Box sx={{ mt: 8, ml: 3, mr: 3, overflowY: 'hidden', maxHeight: '700px' }}>
+            <Typography sx={{ fontSize: '25px'}}>Users List</Typography>
+            <br/>
+            <Table sx={{ backgroundColor: 'white' }}>
+              <TableHead>
+                <TableRow>
+                  <TableCell>User ID</TableCell>
+                  <TableCell>User Name</TableCell>
+                  <TableCell>Email ID</TableCell>
+                  <TableCell>Actions</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {users.map((user) => (
+                  <TableRow key={user.uid}>
+                    <TableCell>{user.uid}</TableCell>
+                    <TableCell>{user.name}</TableCell>
+                    <TableCell>{user.email}</TableCell>
+                    <TableCell>
+                      <Button variant="contained" onClick={() => deleteUser(user.uid)} style={{ borderRadius: 5, backgroundColor: 'red', color: 'white' }}>Restrict</Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </Box>
+        </Box>
+      </Box>
+    </>
+  );
 }

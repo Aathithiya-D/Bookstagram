@@ -1,23 +1,22 @@
 import React from 'react'
 import { Button, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper } from '@mui/material'
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import EngineeringIcon from '@mui/icons-material/Engineering';
-import GroupIcon from '@mui/icons-material/Group';
-import ReportIcon from '@mui/icons-material/Report';
+import PeopleAltSharpIcon from '@mui/icons-material/PeopleAltSharp';
+import LibraryBooksSharpIcon from '@mui/icons-material/LibraryBooksSharp';
+import ForumSharpIcon from '@mui/icons-material/ForumSharp';
 import LogoutIcon from '@mui/icons-material/Logout';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import store from '../features/storage';
 import { logout } from '../features/admin';
 
 
 export default function SidePanel(props) {
     
-    const history = useHistory()
+    const navigate = useNavigate();
     // const worker = store.getState().store.worker
 
     return (
-        <Paper sx={{ position: 'static', height: '100%', width: '275px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }} elevation={3}>
+        <Paper sx={{ flex: '0 0 auto', position: 'static', height: '100%', width: '275px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }} elevation={3}>
             <List sx={{ mt: 6 }}>
                 {/* dashboard */}
                 <ListItem sx={{ mt: 1 }}>
@@ -33,7 +32,7 @@ export default function SidePanel(props) {
                 <ListItem sx={{ mt: 1 }}>
                     <ListItemButton component={Link} to='/adminUsers'>
                         <ListItemIcon>
-                            <ShoppingCartIcon />
+                            <PeopleAltSharpIcon />
                         </ListItemIcon>
                         <ListItemText primary='Users' />
                     </ListItemButton>
@@ -43,28 +42,29 @@ export default function SidePanel(props) {
                 <ListItem sx={{ mt: 1 }}>
                     <ListItemButton component={Link} to='/adminBooks'>
                         <ListItemIcon>
-                            <EngineeringIcon />
+                            <LibraryBooksSharpIcon />
                         </ListItemIcon>
                         <ListItemText primary='Books' />
                     </ListItemButton>
                 </ListItem>
 
-                {/* events */}
-                {/* <ListItem sx={{ mt: 1 }}>
-                    <ListItemButton component={Link} to='/adminEvents'>
+                {/* community */}
+                <ListItem sx={{ mt: 1 }}>
+                    <ListItemButton component={Link} to='/adminCommunity'>
                         <ListItemIcon>
-                            <GroupIcon />
+                            <ForumSharpIcon />
                         </ListItemIcon>
-                        <ListItemText primary='Events' />
+                        <ListItemText primary='Community' />
                     </ListItemButton>
-                </ListItem> */}
+                </ListItem>
             </List>
 
             {/* logout */}
             <Button startIcon={<LogoutIcon />} sx={{ width: '100%', mb: 12, textTransform: 'capitalize', letterSpacing: '.15rem', color: 'red' }}
                 onClick={() => {
                     store.dispatch(logout())
-                    history.push('/login')
+                    navigate('/')
+                    localStorage.clear()
             }}>Logout</Button>
         </Paper>
     )

@@ -1,5 +1,6 @@
 package com.app.bookstagram.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,13 +19,16 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int bid;
+    private Long bid;
 
     private String bookname;
     private String authorname;
     private String dop;
     private String genre;
+
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String bookdesc;
+    
     private String bookUrl1;
     private String bookImgUrl; 
     

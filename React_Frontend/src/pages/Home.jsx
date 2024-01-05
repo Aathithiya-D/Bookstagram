@@ -1,76 +1,82 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import image from '../images/componentIMG.jpg'
+import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
+import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 export default function Home() {
-  // Sample quotes
-  const quotes = [
-    {
-      text: "A room without books is like a body without a soul.",
-      author: "Marcus Tullius Cicero",
-    },
-    {
-      text: "You can never get a cup of tea large enough or a book long enough to suit me.",
-      author: "C.S. Lewis",
-    },
-    {
-      text: "There is no friend as loyal as a book.",
-      author: "Ernest Hemingway",
-    },
-  ];
+  const [books, setBooks] = useState([]);
+  const token = localStorage.getItem('jwtToken');
+  const uid = localStorage.getItem('uid');
+  const headers = {
+    'Authorization': `Bearer ${token}`
+  };
 
-  // Sample book array
-  const books = [
-    {
-      title: "To Kill a Mockingbird",
-      author: "Harper Lee",
-      genre: "Fiction",
-    },
-    {
-      title: "1984",
-      author: "George Orwell",
-      genre: "Dystopian",
-    },
-    {
-      title: "The Great Gatsby",
-      author: "F. Scott Fitzgerald",
-      genre: "Classic",
-    },
-  ];
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
+  const fetchBooks = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/api/v1/book/getAllBooks', { headers: headers });
+      setBooks(response.data);
+    } catch (error) {
+      console.error('Error fetching books:', error);
+    }
+  };
+
+  const addToMyBooks = async (data) => {
+    try {
+      await axios.post('http://localhost:8080/api/v1/mybook/addMyBook', data, { headers: headers })
+      .then((response) => {
+        if(response.data === "Book Added to My Books Successfully")
+        toast.success("Added Successfully")
+        else
+        toast.error("Already Added")
+
+      })
+    } catch (error) {
+      console.log('Error adding book: ', error);
+    }
+  };
 
   return (
     <div>
       <Navbar />
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold mb-4">Welcome to Bookstagram!</h1>
-        <h2 className="text-xl font-semibold mb-4">Quotes:</h2>
-        <ul className="mb-4">
-          {quotes.map((quote, index) => (
-            <li key={index} className="mb-2">
-              <blockquote className="italic">{quote.text}</blockquote>
-              <p className="text-right">- {quote.author}</p>
-            </li>
+      <Box sx={{ display: 'flex', flexDirection: 'column',paddingBottom:"100px" }}>
+      <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
+        <Typography sx={{ fontWeight: 'bolder', fontSize: '21px', mt: 15, mb: 5, ml: 5, mr: 5 }}>Books For You</Typography>
+        <Box sx={{
+          display: 'flex',
+          overflowX: 'scroll',
+          gap: 3,
+          // maxWidth: '1050px', // maximum width to ensure 4 cards per row
+          margin: '0px 100px 0px 100px', // center the container horizontally
+        }}>
+          {books.map((book) => (
+            <Card key={book.bid} sx={{ width: '200px', height: '370px', flex: '1 0 auto' }}>
+              <CardMedia
+                component="img"
+                style={{ objectFit: 'cover', width: '960px', height: '200px' }}
+                src={book.book_img_url}
+                alt={book.bookname}
+              />
+              <CardContent>
+                <Typography variant="h6">{book.bookname}</Typography>
+                <Typography variant="subtitle1" color="text.secondary">{book.authorname}</Typography>
+                <Typography variant="subtitle2" color="text.secondary">Published: {book.dop}</Typography>
+                <button onClick={() => addToMyBooks({ bid: book.bid, uid: uid })} class="rounded-lg bg-blue-300 p-1 md:p-3 text-white mt-4 transition duration-300 ease-in-out hover:bg-blue-950">Want To Read</button>
+              </CardContent>
+            </Card>
           ))}
-        </ul>
-        <h2 className="text-xl font-semibold mb-4">Featured Books:</h2>
-        <ul className="mb-16">
-          {books.map((book, index) => (
-            <li key={index} className="mb-2">
-              <img
-          src={image}
-          alt="Book of the Day"
-          className="w-full max-w-md mx-auto rounded"
-        />
-              <h3 className="text-lg font-semibold">{book.title}</h3>
-              <p className="text-sm text-gray-600">{book.author}</p>
-              <p className="text-sm text-gray-600">{book.genre}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+        </Box>
+      </Box>
       <Footer />
     </div>
   );
 }
-

@@ -13,4 +13,8 @@ public interface UserService {
 
     UserResponse updateUser(UserRequest request, Long uid);
 
+    String deleteUser(Long uid);
+
+    Long getUserCount();
+
 }

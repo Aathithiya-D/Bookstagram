@@ -1,6 +1,8 @@
 package com.app.bookstagram.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,7 +20,6 @@ import com.app.bookstagram.dto.request.BookRequest;
 import com.app.bookstagram.dto.request.Request;
 import com.app.bookstagram.dto.response.BookResponse;
 // import com.app.bookstagram.dto.response.CountResponse;
-
 import com.app.bookstagram.service.BookService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -36,36 +37,39 @@ public class BookController {
     @PostMapping("/createBook")
     public ResponseEntity<String> createBook(@RequestBody Request bookRequest)
     {
-        boolean isCreated = bookService.createBook(bookRequest);
-        return isCreated ? ResponseEntity.ok("Book saved successfully") : ResponseEntity.badRequest().body("Unsuccessful");
+        return bookService.createBook(bookRequest);
     }
 
     @GetMapping(value = "/getBook/{bid}")
-    public ResponseEntity<BookResponse> getBookDetails(@PathVariable("bid") int bid)
+    public ResponseEntity<BookResponse> getBookDetails(@PathVariable("bid") Long bid)
     {
         BookResponse bookResponse = bookService.getBookDetails(bid);
         return bookResponse != null ? ResponseEntity.ok().body(bookResponse) : ResponseEntity.notFound().build();
     }
 
-    // @GetMapping("/getBookCount")
-    // public ResponseEntity<CountResponse> getBookCountDetails() 
-    // {
-    //     CountResponse countResponse = bookService.getBookCountDetails();
-    //     return countResponse.getCount() != 0 ? ResponseEntity.ok().body(countResponse) : 
-    //             ResponseEntity.noContent().build();
-    // }
+    @GetMapping(value = "/getAllBooks")
+    public List<BookResponse> getAllBookDetails()
+    {
+        List<BookResponse> bookResponse = bookService.getAllBookDetails();
+        return bookResponse;
+    }
 
     @PutMapping(value = "/updateBook/{bid}", produces = "application/json")
-    public ResponseEntity<BookResponse> updateBookDetails(final @RequestBody BookRequest request, @PathVariable("bid") int bid)
+    public ResponseEntity<String> updateBookDetails(final @RequestBody BookRequest request, @PathVariable("bid") Long bid)
     {
-        BookResponse bookResponse = bookService.updateBookDetails(request, bid);
-        return bookResponse != null ? ResponseEntity.ok().body(bookResponse) : ResponseEntity.notFound().build();
+        return bookService.updateBookDetails(request, bid);
     }
 
     @DeleteMapping(value = "/deleteBook/{bid}")
-    public String deleteBook(@PathVariable("bid") int bid)
+    public ResponseEntity<String> deleteBook(@PathVariable("bid") Long bid)
     {
         return bookService.deleteBook(bid);
+    }
+
+    @GetMapping("/bookCount")
+    public Long getBookCount()
+    {
+        return bookService.getBookCount();
     }
     
 }

@@ -1,55 +1,33 @@
-import React, { useEffect, useState } from 'react'
-import { Autocomplete, Box, Button, Divider, IconButton, List, ListItem, ListItemText, TextField, Tooltip, Typography } from '@mui/material'
+import React, { useState } from 'react'
+import {Box, Button, IconButton, TextField, Tooltip} from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import store from '../features/storage';
-import { setBooks, setEvents, setUsers } from '../features/admin';
+import axios from 'axios';
 
 
 export default function AddBooks({ setOpen }) {
 
-    const [cart, setCart] = useState([])
-    const [id, setId] = useState(null)
-    const [title, setTitle] = useState(null)
-    const [author, setAuthor] = useState(null)
-    const [genre, setGenre] = useState(null)
+    const [book, setBook] = useState({})
 
-    const options = store.getState().admin.genre
-
-    const handleRemove = (item) => {
-        const newCart = cart.filter(function (product) {
-            return product !== item
-        })
-        
-        setCart(newCart)
-    }
-
-    // const calculateAmount = () => {
-    //     let price = 0.00
-
-    //     cart?.map(item => (
-    //         price += item?.price * item?.quantity
-    //     ))
-
-    //     setTotalPrice(price)
-    // }
-
-    const addBook = () => {
-        const book = {
-            id: id,
-            title: title,
-            author: author,
-            genre: genre
-        }
-
+    const addNewBook = async () => {
         console.log(book)
 
-        store.dispatch(setBooks(book))
-        setOpen(false)  
+        const token = localStorage.getItem('jwtToken');
+
+        const headers = {
+            'Authorization': `Bearer ${token}`
+        };
+        
+        try {
+            await axios.post('http://localhost:8080/api/v1/book/createBook', book, { headers : headers});
+            setOpen(false)
+            window.location.reload()
+        } catch (error) {
+            console.error('Error adding book:', error);
+        }
     }
 
     return (
-        <Box sx={{ width: '500px', height: '350px', backgroundColor: 'white' }}>
+        <Box sx={{ width: '500px', height: '350px', backgroundColor: 'whitesmoke' }}>
             <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                 <Tooltip title='close'>
                     <IconButton sx={{ '&:hover': { color: 'red' } }} onClick={() => setOpen(false)}>
@@ -59,13 +37,21 @@ export default function AddBooks({ setOpen }) {
             </Box>
             <Box sx={{ pr: 3, pl: 3 }}>
                 <Box>
-                    <TextField onChange={(e) => setId(e.target.value)} size='small' type='number' id='book-id' label='Book ID' name='invoice-id' autoFocus required />
+                    {/* <TextField onChange={(e) => setId(e.target.value)} size='small' type='number' id='book-id' label='Book ID' name='invoice-id' autoFocus required /> */}
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 3 }}>
-                        <TextField onChange={(e) => setTitle(e.target.value)} size='small' id='Title' label='Title' name='Title' required />
-                        <TextField onChange={(e) => setAuthor(e.target.value)} size='small' id='Author' label='Author' name='Author' required />
+                        <TextField onChange={(e) => setBook({... book, bookname: e.target.value})} size='small' id='Bookname' label='Bookname' name='Bookname' required />
+                        <TextField onChange={(e) => setBook({...book, authorname: e.target.value})} size='small' id='Authorname' label='Authorname' name='Authorname' required />
+                    </Box>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between'}}>
+                        <TextField sx={{ mt: 3 }} onChange={(e) => setBook({...book, dop: e.target.value})} size='small' id='dop' label='dop' name='dop' required />
+                        <TextField sx={{ mt: 3 }} onChange={(e) => setBook({...book, genre: e.target.value})} size='small' id='genre' label='genre' name='genre' required />
+                    </Box>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between'}}>
+                        {/* <TextField sx={{ mt: 3 }} onChange={(e) => setBook({...book, book_url1: e.target.value})} size='small' id='Book_Url' label='Book_Url' name='Book_Url' required /> */}
+                        <TextField sx={{ mt: 3 }} onChange={(e) => setBook({...book, book_img_url: e.target.value})} size='small' id='Book_Url' label='Book_Url' name='Book_Url' required />
                     </Box>
                 </Box>
-                <Autocomplete
+                {/* <Autocomplete
                     id='products-autocomplete'
                     size='small'
                     options={options}
@@ -73,23 +59,17 @@ export default function AddBooks({ setOpen }) {
                     sx={{ mt: 3 }}
                     onChange={(e, value) => {
                         if (value !== null) {
-                            const item = {
-                                id: value['id'],
-                                title: value['title'],
-                                price: value['price'],
-                                quantity: 1
-                            }
-                            setCart([...cart, item])
+                            setBook({...book, genre: value})
                         }
                     }}
                     renderInput={ params => (
                         <TextField { ...params } size='small' id='products' label='Genre' name='products' required />
                     )}
-                />
+                /> */}
 
                 <Box sx={{ mt: 8, display: 'flex', justifyContent: 'flex-end' }}>
                     <Button
-                        onClick={addBook}
+                        onClick={addNewBook}
                         color='error'
                         variant='outlined'
                     >Add</Button>

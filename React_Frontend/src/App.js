@@ -6,36 +6,60 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Terms from './pages/Terms';
 import Login from './pages/login';
-import policy from './pages/policy';
+import Policy from './pages/policy';
 import Signup from './pages/signup';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AdminBooks from './AdminComponents/AdminBooks';
 import AdminUsers from './AdminComponents/AdminUsers';
-import Events from './AdminPages/Events';
 import AdminDashboard from './AdminComponents/AdminDashboard';
+import AdminProfile from './pages/AdminProfile';
+import ErrorPage from './pages/error';
+import AdminPolicy from './AdminComponents/Adminpolicy';
+import AdminFaq from './AdminComponents/AdminFaq';
+import AdminTerms from './AdminComponents/AdminTerms';
+import AdminCommunity from './AdminComponents/AdminCommunity';
 
 function App() {
-  return (
-    <div className="App">
-    <Router>
-      <Switch>
-      <Route path="/login" component={Login}/>
-      <Route path="/signup" component={Signup}/>
-      <Route path="/home" component={Home}/>
-      <Route path="/policy" component={policy}/>
-      <Route path="/faq" component={Faq}/>
-      <Route path="/terms" component={Terms}/>
-      <Route path="/books" component={Books}/>
-      <Route path="/community" component={Community}/>
-      <Route path="/profile" component={Profile}/>
-      <Route path="/admin" component={AdminDashboard}/>
-      <Route path="/adminBooks" component={AdminBooks}/>
-      <Route path="/adminUsers" component={AdminUsers}/>
-      <Route path="/events" component={Events}/>
 
-      </Switch>
-    </Router>
-    </div>
+  const role = localStorage.getItem("role");
+  console.log(role);
+
+
+  return (
+     <BrowserRouter>
+       <div className="App">
+         <Routes>
+            <Route path="/" element={<Login />}/>
+            <Route path="/signup" element={<Signup />}/>
+            {
+               role === "USER" &&
+               <>
+                  <Route path="/home" element={<Home/>}/> 
+                  <Route path="/books" element={<Books/>}/>
+                  <Route path="/community" element={<Community/>}/>
+                  <Route path="/profile" element={<Profile/>}/>
+                  <Route path="/policy" element={<Policy />}/>
+                  <Route path="/faq" element={<Faq/>}/>
+                  <Route path="/terms" element={<Terms/>}/>
+               </>
+            }
+            {
+               role === "ADMIN" &&
+               <>
+                  <Route path="/adminprofile" element={<AdminProfile/>}/>
+                  <Route path="/adminBooks" element={<AdminBooks/>}/>
+                  <Route path="/admin" element={<AdminDashboard/>}/>
+                  <Route path="/adminUsers" element={<AdminUsers/>}/>
+                  <Route path="/adminpolicy" element={<AdminPolicy />}/>
+                  <Route path="/adminfaq" element={<AdminFaq />}/>
+                  <Route path="/adminterms" element={<AdminTerms />}/>
+                  <Route path="/adminCommunity" element={<AdminCommunity/>}/>
+               </>
+            }
+            <Route path='*' element={<ErrorPage />} />
+         </Routes>
+      </div>
+   </BrowserRouter>
   );
 }
 

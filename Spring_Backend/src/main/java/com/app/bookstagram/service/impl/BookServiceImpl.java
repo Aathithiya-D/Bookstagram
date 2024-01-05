@@ -1,15 +1,24 @@
 package com.app.bookstagram.service.impl;
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.http.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
-// import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestTemplate;
 
 import com.app.bookstagram.dto.request.BookRequest;
 import com.app.bookstagram.dto.request.Request;
 import com.app.bookstagram.dto.response.BookResponse;
 import com.app.bookstagram.model.Book;
 import com.app.bookstagram.repository.BookRepository;
+import com.app.bookstagram.repository.MyBookRepository;
 import com.app.bookstagram.service.BookService;
 
 import jakarta.transaction.Transactional;
@@ -23,56 +32,92 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    @Override
-    public boolean createBook(Request request)
-    {
-        var book = Book.builder()
-                    .authorname(request.getAuthorname())
-                    .bookname(request.getBookname())
-                    .dop(request.getDop())
-                    .build();
+    @Autowired
+    private MyBookRepository myBookRepository;
 
-        bookRepository.save(book);
-        
-        return true;
+    @Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
+
+    public ResponseEntity<String> createBook(Request bookRequest) 
+    {
+		ResponseEntity<String> responseEntity = restTemplate().postForEntity(
+				"http://localhost:8081/api/v1/bookms/createBook",
+				bookRequest,
+				String.class
+		);
+
+		return responseEntity;
     }
 
     @Override
-    public BookResponse getBookDetails(int bid)
+    public BookResponse getBookDetails(Long bid)
     {
         Book b = bookRepository.findByBid(bid);
-        return mapUserToBookResponse(b);
+        return mapBookToBookResponse(b);
     }
 
     @Override
-    public BookResponse updateBookDetails(BookRequest request, int bid)
+    public List<BookResponse> getAllBookDetails()
     {
-        Book book = bookRepository.findById(bid).get();
-        if(book != null)
-        {
-           book.setBookname(request.getBookname());
-           book.setAuthorname(request.getAuthorname());
-           book.setDop(request.getDop());
-           bookRepository.save(book);
+        List<Book> b = bookRepository.findAll();
+        List<BookResponse> br = new ArrayList<>();
+        for(Book book : b){
+            br.add(mapBookToBookResponse(book));
         }
-
-        return mapUserToBookResponse(book);
+        return br;
     }
 
-    private BookResponse mapUserToBookResponse(Book book) {
+    public ResponseEntity<String> updateBookDetails(BookRequest request, Long bid) 
+    {
+    String microserviceUrl = "http://localhost:8081/api/v1/bookms/updateBook/" + bid;
+
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+    HttpEntity<BookRequest> requestEntity = new HttpEntity<>(request, headers);
+
+    ResponseEntity<String> responseEntity = restTemplate().exchange(
+            microserviceUrl,
+            HttpMethod.PUT,
+            requestEntity,
+            String.class
+    );
+
+    return responseEntity;
+}
+
+    private BookResponse mapBookToBookResponse(Book book) {
         return BookResponse.builder()
                 .bid(book.getBid())
                 .bookname(book.getBookname())
+                .book_img_url(book.getBookImgUrl())
                 .authorname(book.getAuthorname())
                 .dop(book.getDop())
                 .build();
     }
+    
+    public ResponseEntity<String> deleteBook(Long bid) {
 
-    @Override
-    public String deleteBook(int bid)
+		Map<String, Long> uriVariables = new HashMap<>();
+		uriVariables.put("bid", bid);
+
+		ResponseEntity<String> responseEntity = restTemplate().exchange(
+				"http://localhost:8081/api/v1/bookms/deleteBook/{bid}",
+				HttpMethod.DELETE,  
+				null,  
+				String.class,
+				uriVariables
+		);
+
+        if (responseEntity != null) myBookRepository.deleteById(bid);
+		return responseEntity;
+	}
+
+    public Long getBookCount()
     {
-        bookRepository.deleteById(bid);
-        return "Deleted Successfully";
+        return bookRepository.count();
     }
+
     
 }

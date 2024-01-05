@@ -20,7 +20,7 @@ const drawerWidth = 240;
 
 export default function AdminDashboard() {
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', backgroundColor: 'whitesmoke' }}>
       <AdminNavbar/>
       <Dashboard />
     </Box>

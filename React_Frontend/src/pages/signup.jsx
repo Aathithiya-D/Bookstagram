@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { TextField } from '@mui/material';
-import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom';
-import videobg1 from '../images/signup.mp4';
+import videobg from '../images/video.mp4';
 import User from '../axios/User';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [emailError, setEmailError] = useState('');
+  const [emailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  const history = useHistory();
+  const navigate = useNavigate(); 
 
   const validatePassword = () => {
     if (password.length < 8) {
@@ -40,7 +40,8 @@ const Signup = () => {
         console.log(res);
         if(data === "User registered successfully")
         {
-          history.push('/login');
+          alert(data);
+          navigate('/');
         }
         else
         {
@@ -58,8 +59,8 @@ const Signup = () => {
 
   return (
     <div className='fixed inset-0 w-full h-full object-cover z-[-1]'>
-      <video autoPlay  loop muted playsInline className='back-video'>
-        <source src={videobg1} type='video/mp4'/>
+      <video autoPlay loop muted playsInline className="back-video">
+        <source src={videobg} type="video/mp4" />
       </video>
       <div className='before'>
       <div className="container bg-white p-6 rounded shadow-md text-center opacity-80 backdrop-blur-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-md w-full overflow-x-hidden">       
@@ -119,7 +120,7 @@ const Signup = () => {
             <br/><br/>   
             <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:ring focus:border-blue-300">SignUp</button>
             <br/><br/>
-            <p>Already have an account? <Link to="/login" className="text-primary">Login</Link></p>
+            <p>Already have an account? <Link to="/" className="text-primary">Login</Link></p>
           </form>
         </div>
       </div>

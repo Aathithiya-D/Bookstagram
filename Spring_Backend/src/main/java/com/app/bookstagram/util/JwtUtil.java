@@ -1,5 +1,6 @@
 package com.app.bookstagram.util;
 
+
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
@@ -62,10 +63,10 @@ public class JwtUtil {
                 .builder()
                 .setClaims(extraClaims)
                 .setSubject(userDetails.getUsername())
-                .setIssuer("IamNeo")
+                .setIssuer(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 24 * 60 * 60 * 1000))
-                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
+                .signWith(getSigningKey(), SignatureAlgorithm.HS384)
                 .compact();
     }
 
